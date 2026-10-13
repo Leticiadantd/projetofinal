@@ -543,12 +543,20 @@ PrefabInstance:
       value: OSV1
       objectReference: {fileID: 0}
     - target: {fileID: 5458994516635274107, guid: a0bf84c65430ced4c9ab43a1221fa312, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3670043
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458994516635274107, guid: a0bf84c65430ced4c9ab43a1221fa312, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.32644105
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458994516635274107, guid: a0bf84c65430ced4c9ab43a1221fa312, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.05
+      value: -4.99
       objectReference: {fileID: 0}
     - target: {fileID: 5458994516635274107, guid: a0bf84c65430ced4c9ab43a1221fa312, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.64
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 5458994516635274107, guid: a0bf84c65430ced4c9ab43a1221fa312, type: 3}
       propertyPath: m_LocalPosition.z
