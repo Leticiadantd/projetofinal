@@ -385,12 +385,16 @@ PrefabInstance:
       value: OSVParado
       objectReference: {fileID: 0}
     - target: {fileID: 7475476660031980227, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.24766001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475476660031980227, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.26
       objectReference: {fileID: 0}
     - target: {fileID: 7475476660031980227, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.77
+      value: -2.9847
       objectReference: {fileID: 0}
     - target: {fileID: 7475476660031980227, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
       propertyPath: m_LocalPosition.z
