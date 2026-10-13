@@ -19,11 +19,9 @@ public class osvaldo : MonoBehaviour
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 direcao = new Vector2(horizontal, vertical).normalized;
-        float velocidadeAnimacao = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
-
+        Vector2 direcao = new Vector2(horizontal, 0f).normalized;
+        float velocidadeAnimacao = Mathf.Abs(horizontal);
         if (animator != null)
         {
             animator.SetFloat("VELOCIDADE", velocidadeAnimacao);
