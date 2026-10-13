@@ -20,7 +20,7 @@ public class osvaldo : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        Vector2 direcao = new Vector2(horizontal, 0f).normalized;
+        Vector2 direcao = new Vector2(horizontal, rb.velocity.y).normalized;
         float velocidadeAnimacao = Mathf.Abs(horizontal);
         if (animator != null)
         {
