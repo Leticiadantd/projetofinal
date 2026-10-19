@@ -26,13 +26,13 @@ public class BarcoInteracao : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica se o objeto que encostou tem a Tag "Player"
-        if (collision.CompareTag("Player"))
+        // Verifica se o objeto que bateu tem a Tag "Player"
+        if (collision.gameObject.CompareTag("Player"))
         {
             jogadorPorPerto = true;
-            Debug.Log("O cãozinho chegou perto do barco! Pressiona 'E'.");
+            Debug.Log("O cãozinho encostou fisicamente ao barco! Pressiona 'E'.");
 
             if (avisoTexto != null)
             {
@@ -41,9 +41,9 @@ public class BarcoInteracao : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             jogadorPorPerto = false;
             Debug.Log("O cãozinho afastou-se do barco.");
