@@ -2,13 +2,8 @@ using UnityEngine;
 
 public class ChaveItem : MonoBehaviour
 {
-    [Header("Configuração de Flutuação")]
-    public float velocidadeFlutuacao = 3f;
-    public float alturaFlutuacao = 0.25f;
-    private Vector3 posicaoInicial;
-
     [Header("Seguir o Cachorro")]
-    public Transform cachorro; // Arrasta o cãozinho (OSV1) para aqui no Inspector
+    public Transform cachorro; // Arrasta o cÃ£ozinho para aqui no Inspector
     private bool foiColetada = false;
 
     [Header("Texto / Mensagem")]
@@ -16,9 +11,7 @@ public class ChaveItem : MonoBehaviour
 
     void Start()
     {
-        posicaoInicial = transform.position;
-
-        // Garante que a mensagem começa escondida
+        // Garante que a mensagem comeÃ§a escondida
         if (textoDica != null)
         {
             textoDica.SetActive(false);
@@ -27,15 +20,9 @@ public class ChaveItem : MonoBehaviour
 
     void Update()
     {
-        if (!foiColetada)
+        // Se jÃ¡ foi coletada, acompanha a posiÃ§Ã£o do cachorro (um bocadinho acima dele)
+        if (foiColetada && cachorro != null)
         {
-            // Efeito de flutuar suavemente para cima e para baixo (estilo Minecraft)
-            float novaAltura = posicaoInicial.y + Mathf.Sin(Time.time * velocidadeFlutuacao) * alturaFlutuacao;
-            transform.position = new Vector3(transform.position.x, novaAltura, transform.position.z);
-        }
-        else if (cachorro != null)
-        {
-            // Se foi coletada, acompanha a posição do cachorro (um bocadinho acima dele)
             transform.position = cachorro.position + new Vector3(0f, 1.2f, 0f);
         }
     }
