@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cena3.unity
     guid: 934ff413ff3f77d478ed2418ae9f04ff
+  - enabled: 1
+    path: Assets/Scenes/cena 3 (dentro do barco).unity
+    guid: 66d9812642bb51f439296aba61dae9df
   m_configObjects: {}

@@ -431,6 +431,8 @@ GameObject:
   m_Component:
   - component: {fileID: 548243385}
   - component: {fileID: 548243386}
+  - component: {fileID: 548243388}
+  - component: {fileID: 548243387}
   m_Layer: 0
   m_Name: barco
   m_TagString: Untagged
@@ -505,6 +507,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &548243387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548243384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da512d94fa61ae4bb16117d64570fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomeProximaCena: cena 3 (dentro do barco)
+  avisoTexto: {fileID: 0}
+--- !u!61 &548243388
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548243384}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.26, y: 2.69}
+    newSize: {x: 9.26, y: 2.69}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.26, y: 2.69}
+  m_EdgeRadius: 0
 --- !u!1 &901268639
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +829,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1380142402}
   - component: {fileID: 1380142401}
+  - component: {fileID: 1380142404}
+  - component: {fileID: 1380142403}
   m_Layer: 0
   m_Name: chave preto
   m_TagString: Untagged
@@ -836,12 +899,71 @@ Transform:
   m_GameObject: {fileID: 1380142400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4051, y: -0.61, z: 0}
+  m_LocalPosition: {x: -2.22, y: -1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380142403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380142400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163fd80d80794a94b9fd038a6d08aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cachorro: {fileID: 1938358085}
+  textoDica: {fileID: 0}
+--- !u!61 &1380142404
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380142400}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9, y: 2.66}
+    newSize: {x: 0.9, y: 2.66}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 2.66}
+  m_EdgeRadius: 0
 --- !u!1 &1389875960
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +1052,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d020be040ebd6604596c06c04bfb164f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -951,7 +1073,7 @@ Transform:
   m_GameObject: {fileID: 1434507175}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9215, y: 0.3948, z: 0}
+  m_LocalPosition: {x: -1.73, y: -0.33, z: 0}
   m_LocalScale: {x: 0.71, y: 0.71, z: 0.71}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1135,6 +1257,10 @@ PrefabInstance:
     - target: {fileID: 5933245027068474167, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
       propertyPath: m_Name
       value: OSVParado
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933245027068474167, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7475476660031980227, guid: 7b206ad14a7a2eb4fae53dc42933cab9, type: 3}
       propertyPath: m_LocalScale.x
