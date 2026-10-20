@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7670807477797041787}
   - component: {fileID: 6173998887384028474}
   - component: {fileID: 1542397127483194810}
+  - component: {fileID: 5473734639714757464}
   m_Layer: 0
   m_Name: OSV1
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.05, y: -1.64, z: 0}
-  m_LocalScale: {x: 0.44658592, y: 0.3806449, z: 1}
+  m_LocalScale: {x: 0.3670043, y: 0.32644105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -184,3 +185,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.28586733, y: 0.6036985}
   m_Size: {x: 7.0443935, y: 13.094332}
   m_Direction: 0
+--- !u!114 &5473734639714757464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212147473569470008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f1c3ca4e75c894bad83e4f6f86c518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  somDoPasso: {fileID: 8300000, guid: 7625aaa7aad09bc40a5a143a5b71cb6a, type: 3}
+  tempoEntrePassos: 0.3
