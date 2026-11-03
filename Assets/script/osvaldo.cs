@@ -20,7 +20,13 @@ public class osvaldo : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        Vector2 direcao = new Vector2(horizontal, rb.velocity.y).normalized;
+        
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(horizontal * velocidade, rb.velocity.y);
+        }
+
+        
         float velocidadeAnimacao = Mathf.Abs(horizontal);
         if (animator != null)
         {
@@ -28,6 +34,7 @@ public class osvaldo : MonoBehaviour
             animator.speed = velocidadeAnimacao > 0.01f ? 1f : 0f;
         }
 
+        
         if (spriteRenderer != null)
         {
             if (horizontal < 0f)
@@ -38,11 +45,6 @@ public class osvaldo : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
             }
-        }
-
-        if (rb != null)
-        {
-            rb.velocity = direcao * velocidade;
         }
     }
 }
