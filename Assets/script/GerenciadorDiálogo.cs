@@ -22,6 +22,7 @@ public class GerenciadorDialogo : MonoBehaviour
     private Queue<LinhaDialogo> filasDialogo = new Queue<LinhaDialogo>();
     private bool dialogoAtivo = false;
     private RectTransform rectPainel;
+    private RectTransform canvasRect;
 
     private void Awake()
     {
@@ -30,6 +31,13 @@ public class GerenciadorDialogo : MonoBehaviour
         if (painelDialogo != null)
         {
             rectPainel = painelDialogo.GetComponent<RectTransform>();
+
+            // Pega a referência do RectTransform do Canvas pai
+            Canvas parentCanvas = painelDialogo.GetComponentInParent<Canvas>();
+            if (parentCanvas != null)
+            {
+                canvasRect = parentCanvas.GetComponent<RectTransform>();
+            }
         }
     }
 
@@ -80,18 +88,40 @@ public class GerenciadorDialogo : MonoBehaviour
         if (textoNome != null) textoNome.text = linhaAtual.nomePersonagem;
         if (textoFala != null) textoFala.text = linhaAtual.textoFala;
 
-        // Alterna a posição do balão de acordo com quem está a falar
+        // Alterna e ajusta a posição do balão mantendo-o dentro da tela
         if (rectPainel != null)
         {
+            Vector2 posicaoAlvo = posicaoBilheteiro;
+
             if (linhaAtual.nomePersonagem.ToLower().Contains("otávio") || linhaAtual.nomePersonagem.ToLower().Contains("otavio"))
             {
-                rectPainel.anchoredPosition = posicaoOtavio;
+                posicaoAlvo = posicaoOtavio;
             }
-            else
-            {
-                rectPainel.anchoredPosition = posicaoBilheteiro;
-            }
+
+            PosicionarEManterNaTela(posicaoAlvo);
         }
+    }
+
+    private void PosicionarEManterNaTela(Vector2 posicaoDesejada)
+    {
+        rectPainel.anchoredPosition = posicaoDesejada;
+
+        if (canvasRect == null) return;
+
+        // Calcula as dimensões do painel e as margens do Canvas
+        Vector2 tamanhoPainel = rectPainel.rect.size;
+        Vector2 pivot = rectPainel.pivot;
+
+        float limiteMinX = (-canvasRect.rect.width * 0.5f) + (tamanhoPainel.x * pivot.x);
+        float limiteMaxX = (canvasRect.rect.width * 0.5f) - (tamanhoPainel.x * (1f - pivot.x));
+        float limiteMinY = (-canvasRect.rect.height * 0.5f) + (tamanhoPainel.y * pivot.y);
+        float limiteMaxY = (canvasRect.rect.height * 0.5f) - (tamanhoPainel.y * (1f - pivot.y));
+
+        // Clampa as posições para impedir que ultrapasse os limites da tela
+        float xClamped = Mathf.Clamp(posicaoDesejada.x, limiteMinX, limiteMaxX);
+        float yClamped = Mathf.Clamp(posicaoDesejada.y, limiteMinY, limiteMaxY);
+
+        rectPainel.anchoredPosition = new Vector2(xClamped, yClamped);
     }
 
     private void EncerrarDialogo()
