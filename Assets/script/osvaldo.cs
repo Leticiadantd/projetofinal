@@ -8,6 +8,7 @@ public class osvaldo : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private float horizontal;
 
     private void Awake()
     {
@@ -18,13 +19,8 @@ public class osvaldo : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-
         
-        if (rb != null)
-        {
-            rb.velocity = new Vector2(horizontal * velocidade, rb.velocity.y);
-        }
+        horizontal = Input.GetAxisRaw("Horizontal");
 
         
         float velocidadeAnimacao = Mathf.Abs(horizontal);
@@ -33,18 +29,20 @@ public class osvaldo : MonoBehaviour
             animator.SetFloat("VELOCIDADE", velocidadeAnimacao);
             animator.speed = velocidadeAnimacao > 0.01f ? 1f : 0f;
         }
-
         
-        if (spriteRenderer != null)
+        
+        if (horizontal > 0)
+            spriteRenderer.flipX = false;
+        else if (horizontal < 0)
+            spriteRenderer.flipX = true;
+    }
+
+    private void FixedUpdate()
+    {
+        
+        if (rb != null)
         {
-            if (horizontal < 0f)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else if (horizontal > 0f)
-            {
-                spriteRenderer.flipX = false;
-            }
+            rb.velocity = new Vector2(horizontal * velocidade, rb.velocity.y);
         }
     }
 }
