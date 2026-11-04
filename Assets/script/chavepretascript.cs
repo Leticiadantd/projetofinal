@@ -3,11 +3,11 @@ using UnityEngine;
 public class chavepretascript : MonoBehaviour
 {
     [Header("Seguir o Cachorro")]
-    public Transform cachorro; // Arrasta o cãozinho para aqui no Inspector
+    public Transform cachorro; 
     private bool foiColetada = false;
 
     [Header("Texto / Mensagem")]
-    public GameObject textoDica; // Arrasta o texto de aviso para aqui
+    public GameObject textoDica; 
 
     void Start()
     {
@@ -50,6 +50,13 @@ public class chavepretascript : MonoBehaviour
             if (textoDica != null)
             {
                 textoDica.SetActive(false);
+            }
+
+            if (GerenciadorDeObjetivos.Instance != null)
+            {
+                GerenciadorDeObjetivos.Instance.AtualizarTextoObjetivo("Objetivo: Entre no barco.");
+
+             
             }
         }
     }

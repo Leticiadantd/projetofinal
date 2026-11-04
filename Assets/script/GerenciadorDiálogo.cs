@@ -32,7 +32,6 @@ public class GerenciadorDialogo : MonoBehaviour
         {
             rectPainel = painelDialogo.GetComponent<RectTransform>();
 
-            // Pega a referência do RectTransform do Canvas pai
             Canvas parentCanvas = painelDialogo.GetComponentInParent<Canvas>();
             if (parentCanvas != null)
             {
@@ -43,7 +42,6 @@ public class GerenciadorDialogo : MonoBehaviour
 
     private void Start()
     {
-        // Esconde o painel assim que o jogo começa
         if (painelDialogo != null)
         {
             painelDialogo.SetActive(false);
@@ -88,7 +86,6 @@ public class GerenciadorDialogo : MonoBehaviour
         if (textoNome != null) textoNome.text = linhaAtual.nomePersonagem;
         if (textoFala != null) textoFala.text = linhaAtual.textoFala;
 
-        // Alterna e ajusta a posição do balão mantendo-o dentro da tela
         if (rectPainel != null)
         {
             Vector2 posicaoAlvo = posicaoBilheteiro;
@@ -108,7 +105,6 @@ public class GerenciadorDialogo : MonoBehaviour
 
         if (canvasRect == null) return;
 
-        // Calcula as dimensões do painel e as margens do Canvas
         Vector2 tamanhoPainel = rectPainel.rect.size;
         Vector2 pivot = rectPainel.pivot;
 
@@ -117,7 +113,6 @@ public class GerenciadorDialogo : MonoBehaviour
         float limiteMinY = (-canvasRect.rect.height * 0.5f) + (tamanhoPainel.y * pivot.y);
         float limiteMaxY = (canvasRect.rect.height * 0.5f) - (tamanhoPainel.y * (1f - pivot.y));
 
-        // Clampa as posições para impedir que ultrapasse os limites da tela
         float xClamped = Mathf.Clamp(posicaoDesejada.x, limiteMinX, limiteMaxX);
         float yClamped = Mathf.Clamp(posicaoDesejada.y, limiteMinY, limiteMaxY);
 
@@ -128,7 +123,6 @@ public class GerenciadorDialogo : MonoBehaviour
     {
         dialogoAtivo = false;
 
-        // Esconde o balão ao terminar o diálogo
         if (painelDialogo != null) painelDialogo.SetActive(false);
 
         if (GerenciadorDeObjetivos.Instance != null)
