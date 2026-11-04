@@ -13,11 +13,11 @@ public class TrocaSala : MonoBehaviour
     {
         if (collision.CompareTag("Player") || collision.gameObject.name == "OSV1")
         {
-            // Ativa o próximo painel e desativa o atual
+           
             painelDestino.SetActive(true);
             painelAtual.SetActive(false);
 
-            // Teleporta o jogador para o outro lado da sala
+            
             collision.transform.position = pontoDeSaida.position;
         }
     }
