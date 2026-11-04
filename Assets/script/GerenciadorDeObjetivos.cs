@@ -18,6 +18,11 @@ public class GerenciadorDeObjetivos : MonoBehaviour
         AtualizarTextoObjetivo("Objetivo: Pague o bilheteiro usando Piecks.");
     }
 
+    public void AtivarObjetivoBarco()
+    {
+        AtualizarTextoObjetivo("Objetivo: Encontrar a chave para abrir o barco");
+    }
+
     public void AtualizarTextoObjetivo(string novoTexto)
     {
         if (textoObjetivo != null)
