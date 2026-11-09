@@ -10,6 +10,7 @@ public class BilheteiroInteracao : MonoBehaviour
 
     private void Start()
     {
+        // Preenche o diálogo com as falas do seu roteiro
         if (dialogoInicial.Count == 0)
         {
             dialogoInicial.Add(new LinhaDialogo { nomePersonagem = "Otávio", textoFala = "Com licença, meu bom senhor, preciso ir ao Oriente!" });
@@ -20,14 +21,24 @@ public class BilheteiroInteracao : MonoBehaviour
         }
     }
 
+    // Clique Point and Click sobre o Bilheteiro
     private void OnMouseDown()
     {
         if (!jaInteragiu)
         {
             jaInteragiu = true;
             
-            // Chama apenas com 1 argumento, tal como o teu GerenciadorDialogo espera
-            GerenciadorDialogo.Instance.IniciarDialogo(dialogoInicial);
+            // Inicia o diálogo e passa a ação de ativar o objetivo quando terminar
+            GerenciadorDialogo.Instance.IniciarDialogo(dialogoInicial, AoTerminarDialogo);
+        }
+    }
+
+    // Método que será chamado assim que todas as falas do bilheteiro terminarem
+    private void AoTerminarDialogo()
+    {
+        if (GerenciadorDeObjetivos.Instance != null)
+        {
+            GerenciadorDeObjetivos.Instance.AtivarObjetivoPiecks();
         }
     }
 }

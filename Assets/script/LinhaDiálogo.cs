@@ -1,9 +1,12 @@
+
+using System;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class LinhaDialogo
 {
     public string nomePersonagem;
-    [TextArea(2, 4)]
+
+    [TextArea(2, 5)]
     public string textoFala;
 }
