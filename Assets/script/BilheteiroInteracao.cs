@@ -10,7 +10,6 @@ public class BilheteiroInteracao : MonoBehaviour
 
     private void Start()
     {
-        // Preenche o diálogo com as falas do seu roteiro
         if (dialogoInicial.Count == 0)
         {
             dialogoInicial.Add(new LinhaDialogo { nomePersonagem = "Otávio", textoFala = "Com licença, meu bom senhor, preciso ir ao Oriente!" });
@@ -21,12 +20,13 @@ public class BilheteiroInteracao : MonoBehaviour
         }
     }
 
-    // Clique Point and Click sobre o Bilheteiro
     private void OnMouseDown()
     {
         if (!jaInteragiu)
         {
             jaInteragiu = true;
+            
+            // Chama apenas com 1 argumento, tal como o teu GerenciadorDialogo espera
             GerenciadorDialogo.Instance.IniciarDialogo(dialogoInicial);
         }
     }

@@ -7,16 +7,18 @@ public class GerenciadorDialogo : MonoBehaviour
 {
     public static GerenciadorDialogo Instance;
 
+    
+
     [Header("Componentes de UI")]
     public GameObject painelDialogo;
     public TextMeshProUGUI textoNome;
     public TextMeshProUGUI textoFala;
 
-    [Header("Posições dos Balões no Canvas")]
-    [Tooltip("Posição perto da Coruja (Bilheteiro)")]
+    [Header("Posiï¿½ï¿½es dos Balï¿½es no Canvas")]
+    [Tooltip("Posiï¿½ï¿½o perto da Coruja (Bilheteiro)")]
     public Vector2 posicaoBilheteiro = new Vector2(-200, 100);
 
-    [Tooltip("Posição perto do Cachorro (Otávio)")]
+    [Tooltip("Posiï¿½ï¿½o perto do Cachorro (Otï¿½vio)")]
     public Vector2 posicaoOtavio = new Vector2(250, -50);
 
     private Queue<LinhaDialogo> filasDialogo = new Queue<LinhaDialogo>();
@@ -67,7 +69,7 @@ public class GerenciadorDialogo : MonoBehaviour
 
         dialogoAtivo = true;
 
-        // Mostra o balão só quando a conversa começa
+        // Mostra o balï¿½o sï¿½ quando a conversa comeï¿½a
         if (painelDialogo != null) painelDialogo.SetActive(true);
 
         ProximaFala();
@@ -90,7 +92,7 @@ public class GerenciadorDialogo : MonoBehaviour
         {
             Vector2 posicaoAlvo = posicaoBilheteiro;
 
-            if (linhaAtual.nomePersonagem.ToLower().Contains("otávio") || linhaAtual.nomePersonagem.ToLower().Contains("otavio"))
+            if (linhaAtual.nomePersonagem.ToLower().Contains("otï¿½vio") || linhaAtual.nomePersonagem.ToLower().Contains("otavio"))
             {
                 posicaoAlvo = posicaoOtavio;
             }
@@ -131,3 +133,4 @@ public class GerenciadorDialogo : MonoBehaviour
         }
     }
 }
+
