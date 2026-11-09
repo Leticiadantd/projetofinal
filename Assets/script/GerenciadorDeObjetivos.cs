@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using TMPro;
 
@@ -10,7 +11,6 @@ public class GerenciadorDeObjetivos : MonoBehaviour
 
     private void Awake()
     {
-        // Garante que só existe um GerenciadorDeObjetivos na cena
         if (Instance == null)
         {
             Instance = this;
@@ -23,15 +23,25 @@ public class GerenciadorDeObjetivos : MonoBehaviour
 
     public void AtivarObjetivoPiecks()
     {
-        AtualizarTextoObjetivo("Objetivo: Pague o bilheteiro usando Piecks.");
+        AtualizarTextoObjetivo(
+            "Objetivo: Pague o bilheteiro usando Piecks."
+        );
+    }
+
+    public void AtivarObjetivoMala()
+    {
+        AtualizarTextoObjetivo(
+            "Objetivo: Abra a mala e encontre o dinheiro!"
+        );
     }
 
     public void AtivarObjetivoBarco()
     {
-        AtualizarTextoObjetivo("Objetivo: Encontrar a chave para abrir o barco.");
+        AtualizarTextoObjetivo(
+            "Objetivo: Encontrar a chave para abrir o barco."
+        );
     }
 
-    // Método genérico para atualizar o texto do objetivo livremente
     public void AtualizarTextoObjetivo(string novoTexto)
     {
         if (textoObjetivo != null)
@@ -40,7 +50,9 @@ public class GerenciadorDeObjetivos : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("O campo 'Texto Objetivo' não está atribuído no Inspector!");
+            Debug.LogWarning(
+                "O campo Texto Objetivo não está atribuído!"
+            );
         }
     }
 }
