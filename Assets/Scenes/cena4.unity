@@ -755,8 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   painelFade: {fileID: 0}
   duracaoFade: 2
-  tempoEspera: 5
-  transicaoAutomatica: 1
+  tempoEspera: 0
+  transicaoAutomatica: 0
   nomeProximaCena: cena4
 --- !u!114 &1482222183
 MonoBehaviour:
