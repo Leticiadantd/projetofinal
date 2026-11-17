@@ -1,52 +1,26 @@
-
 using UnityEngine;
 
-public class MalaInteracao : MonoBehaviour
+public class MalaInteraction : MonoBehaviour
 {
-    [Header("Aparencia da Mala")]
-    public SpriteRenderer spriteMala;
-    public Sprite spriteMalaAberta;
+    [Header("Configurações")]
+    public float interactionRange = 3f; // Distância de interação (se for por proximidade/clique)
+    private bool opened = false;
 
-    [Header("Dinheiro")]
-    public GameObject dinheiroVisual;
-
-    private bool malaAberta = false;
-
-    private void Start()
-    {
-        if (dinheiroVisual != null)
-            dinheiroVisual.SetActive(false);
-    }
-
+    // Se você estiver usando cliques do mouse 2D (OnMouseDown do Unity):
     private void OnMouseDown()
     {
-        if (malaAberta)
-            return;
-
-        if (GerenciadorDeObjetivos.Instance == null)
-            return;
-
-        if (!GerenciadorDeObjetivos.Instance.ObjetivoMalaAtivo)
+        if (!opened)
         {
-            Debug.Log("Voce ainda nao pode abrir a mala!");
-            return;
+            opened = true;
+            
+            // Avisa o Gerenciador de Objetivos que a mala foi aberta/encontrada
+            if (QuestManager.Instance != null)
+            {
+                QuestManager.Instance.CompleteObjective();
+            }
+
+            // Exemplo: mudar o sprite da mala para aberta, se tiver
+            // GetComponent<SpriteRenderer>().sprite = spriteMalaAberta;
         }
-
-        AbrirMala();
-    }
-
-    private void AbrirMala()
-    {
-        malaAberta = true;
-
-        if (spriteMala != null && spriteMalaAberta != null)
-            spriteMala.sprite = spriteMalaAberta;
-
-        if (dinheiroVisual != null)
-            dinheiroVisual.SetActive(true);
-
-        GerenciadorDeObjetivos.Instance.ConcluirObjetivoMala();
-
-        Debug.Log("Dinheiro encontrado!");
     }
 }

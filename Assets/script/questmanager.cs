@@ -1,12 +1,12 @@
 using UnityEngine;
-using TMPro; // Use TextMeshPro para o texto na tela
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
     [Header("UI")]
-    public TextMeshProUGUI objectiveText; // Arraste o texto da UI aqui
+    public TextMeshProUGUI objectiveText;
 
     [Header("Estado do Objetivo")]
     public string currentObjective = "Objetivo: Encontre o dinheiro na mala";
@@ -14,23 +14,27 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        // Padrão Singleton para facilitar o acesso de outros scripts
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
-        UpdateUI();
+        if (objectiveText != null)
+        {
+            objectiveText.gameObject.SetActive(false);
+        }
     }
 
-    // Método chamado quando o jogador interage com a mala
+    public void StartObjective()
+    {
+        if (objectiveText != null)
+        {
+        // objectiveText.gameObject.SetActive(true);
+            UpdateUI();
+        }
+    }
+
     public void CompleteObjective()
     {
         if (!isObjectiveCompleted)
@@ -38,9 +42,6 @@ public class QuestManager : MonoBehaviour
             isObjectiveCompleted = true;
             currentObjective = "Objetivo Concluído: Dinheiro encontrado!";
             UpdateUI();
-            
-            // Aqui você pode adicionar lógica extra (tocar som, abrir painel, etc.)
-            Debug.Log("Missão cumprida!");
         }
     }
 

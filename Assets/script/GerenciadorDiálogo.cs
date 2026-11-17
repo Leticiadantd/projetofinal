@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +12,7 @@ public class GerenciadorDialogo : MonoBehaviour
     public GameObject painelDialogo;
     public TextMeshProUGUI textoNome;
     public TextMeshProUGUI textoFala;
+    
 
     [Header("Posicoes dos Baloes no Canvas")]
     [Tooltip("Posicao perto da Coruja (Bilheteiro)")]
@@ -73,7 +73,6 @@ public class GerenciadorDialogo : MonoBehaviour
         }
     }
 
-    // ALTERADO: Agora aceita uma acao ao terminar o dialogo
     public void IniciarDialogo(
         List<LinhaDialogo> conversas,
         Action callback = null)
@@ -91,7 +90,7 @@ public class GerenciadorDialogo : MonoBehaviour
 
         dialogoAtivo = true;
 
-        // Mostra o balao quando a conversa comeca
+
         if (painelDialogo != null)
             painelDialogo.SetActive(true);
 
@@ -159,13 +158,14 @@ public class GerenciadorDialogo : MonoBehaviour
             xClamped, yClamped);
     }
 
-    // ALTERADO: Finaliza o dialogo e executa a acao recebida
     private void EncerrarDialogo()
     {
         dialogoAtivo = false;
 
         if (painelDialogo != null)
+        {
             painelDialogo.SetActive(false);
+        }
 
         Action callback = aoTerminarDialogo;
         aoTerminarDialogo = null;
@@ -176,7 +176,6 @@ public class GerenciadorDialogo : MonoBehaviour
         }
         else if (GerenciadorDeObjetivos.Instance != null)
         {
-            // Mantem o comportamento antigo quando nao existe callback
             GerenciadorDeObjetivos.Instance.AtivarObjetivoPiecks();
         }
     }
