@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 
@@ -63,8 +62,13 @@ public class GerenciadorDeObjetivos : MonoBehaviour
     public void AtualizarTextoObjetivo(string novoTexto)
     {
         if (textoObjetivo != null)
+        {
+            textoObjetivo.gameObject.SetActive(true);
             textoObjetivo.text = novoTexto;
+        }
         else
+        {
             Debug.LogWarning("TextoObjetivo nao foi atribuido!");
+        }
     }
 }

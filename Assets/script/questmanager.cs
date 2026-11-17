@@ -22,7 +22,7 @@ public class QuestManager : MonoBehaviour
     {
         if (objectiveText != null)
         {
-            objectiveText.gameObject.SetActive(false);
+            objectiveText.gameObject.SetActive(true);
         }
     }
 
@@ -30,7 +30,7 @@ public class QuestManager : MonoBehaviour
     {
         if (objectiveText != null)
         {
-        // objectiveText.gameObject.SetActive(true);
+            objectiveText.gameObject.SetActive(true);
             UpdateUI();
         }
     }
