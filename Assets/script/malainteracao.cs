@@ -4,10 +4,10 @@ public class MalaInteraction : MonoBehaviour
 {
     [Header("Configurações")]
     public float interactionRange = 3f;
-    public Transform jogador; 
+    public Transform jogador; // Arraste o personagem (Osvaldo) aqui no Inspector
 
     [Header("Visual da Mala")]
-    public Sprite spriteMalaAberta; 
+    public Sprite spriteMalaAberta; // Opcional: arraste a imagem da mala aberta aqui
     private SpriteRenderer spriteRenderer;
 
     private bool opened = false;
@@ -31,6 +31,7 @@ public class MalaInteraction : MonoBehaviour
             }
         }
 
+        // 2. Verifica se o objetivo da mala realmente está ativo antes de abrir
         if (GerenciadorDeObjetivos.Instance != null &&
             GerenciadorDeObjetivos.Instance.ObjetivoMalaAtivo)
         {
@@ -46,11 +47,13 @@ public class MalaInteraction : MonoBehaviour
     {
         opened = true;
 
+        // Muda o sprite da mala para aberta (se tiver configurado)
         if (spriteRenderer != null && spriteMalaAberta != null)
         {
             spriteRenderer.sprite = spriteMalaAberta;
         }
 
+        // Conclui o objetivo no seu GerenciadorDeObjetivos
         if (GerenciadorDeObjetivos.Instance != null)
         {
             GerenciadorDeObjetivos.Instance.ConcluirObjetivoMala();
