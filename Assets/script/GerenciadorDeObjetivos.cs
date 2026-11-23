@@ -69,6 +69,6 @@ public class GerenciadorDeObjetivos : MonoBehaviour
         else
         {
             Debug.LogWarning("TextoObjetivo nao foi atribuido!");
-        }
+        } 
     }
 }
